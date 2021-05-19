@@ -19,9 +19,6 @@ namespace Serilog03
                     webBuilder.UseStartup<Startup>();
                 })
             .UseSerilog((hostingContect, loggerConfiguration) => loggerConfiguration
-                .MinimumLevel.Warning()
-                .MinimumLevel.Override("Serilog03", Serilog.Events.LogEventLevel.Information)
-                .MinimumLevel.Override("Microsoft.Hosting.Lifetime", Serilog.Events.LogEventLevel.Warning)
                 .ReadFrom.Configuration(hostingContect.Configuration)
                 .WriteTo.Console(new CompactJsonFormatter())
             );
