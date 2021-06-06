@@ -18,8 +18,8 @@ namespace Serilog03
                 {
                     webBuilder.UseStartup<Startup>();
                 })
-            .UseSerilog((hostingContect, loggerConfiguration) => loggerConfiguration
-                .ReadFrom.Configuration(hostingContect.Configuration)
+            .UseSerilog((hostingContext, loggerConfiguration) => loggerConfiguration
+                .ReadFrom.Configuration(hostingContext.Configuration)
                 .WriteTo.Console(new CompactJsonFormatter())
             );
     }
